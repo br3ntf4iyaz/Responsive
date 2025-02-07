@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Andrew's Website</title>
+    <style>
+        /* ✅ Remove bullet points & spacing from navbar list */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        /* ✅ Fix potential ::before issue causing a white dot */
+        .nav-links::before,
+        .nav-links::after {
+            content: none !important;
+        }
+
+        /* ✅ Ensure navbar links align properly */
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        /* ✅ Remove default button styling */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Andrew's Website</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="https://www.facebook.com/andrew.matthew.oareza.2024/" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com/andrwmatthw/" target="_blank">Instagram</a></li>
+
+                <li><a href="https://github.com/br3ntf4iyaz" target="_blank">GitHub</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+    <div class="container" id="home">
+        <div class="about-container">
+            <div class="card">
+                <img src="andrew.jpg" alt="Andrew Matthew's Image">
+                <h2>Andrew Matthew Oareza</h2>
+                <p>I’m a second-year college student from DLL with a love for adventure and simple joys. Traveling to new places, watching breathtaking sunsets, and swimming in beautiful beaches bring me peace.</p>
+            </div>
+            <div class="title-card">
+                <img src="wkw.jpg" alt="Wong kar wai's Image">
+                <h2>Hobbies</h2>
+                <p>Films are my escape into different worlds, emotions, and stories. I enjoy everything from classic cinema to modern blockbusters. Whether it’s an intense thriller, a heartwarming drama, or a visually stunning sci-fi, I love immersing myself in the art of storytelling through film.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+    </script>
+</body>
+</html>

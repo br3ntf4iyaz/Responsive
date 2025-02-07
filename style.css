@@ -1,0 +1,194 @@
+/* Reset and global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    padding-top: 120px; /* Adjusted for taller navbar */
+}
+
+/* Navbar with GIF background */
+.navbar {
+    background: url('city-lofi.gif') no-repeat center;
+    background-size: cover;
+    background-position: center;
+    height: 120px; /* Increased height for better visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark overlay for better readability */
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 2, 2, 0.7); /* Darker overlay */
+    z-index: -1;
+}
+
+/* Navbar content */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #e0e0e0;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.logo:hover {
+    color: cyan;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    z-index: 10;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.nav-links a:hover {
+    color: cyan;
+}
+
+/* Moving banner adjusted below navbar */
+.moving-banner {
+    position: fixed;
+    top: 120px; /* Adjusted to appear below the taller navbar */
+    width: 100%;
+    background: #ff5722;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    animation: moveBanner 10s linear infinite;
+    z-index: 999;
+}
+
+@keyframes moveBanner {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ✅ Layout for title and about me cards */
+.about-container {
+    display: flex; /* Aligns items side by side */
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    justify-content: center; /* Centers them */
+    align-items: stretch; /* Ensures both cards stretch to the same height */
+    gap: 30px; /* Adds spacing between the two elements */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ✅ Title Card and About Me Card (Fixed Alignment) */
+.title-card, .card {
+    background: #1e1e1e;
+    border-radius: 15px; /* Rounded edges */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.35s;
+    width: 400px; /* Fixed width */
+    min-height: 600px; /* Increased height for both cards */
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes content evenly */
+    color: #e0e0e0;
+    flex-grow: 1; /* Ensures both cards grow to the same height */
+}
+
+/* ✅ Makes images inside the cards have rounded edges & bigger */
+.title-card img, .card img {
+    width: 100%; /* Ensures image scales properly */
+    border-radius: 10px; /* Softly rounded corners */
+    object-fit: cover; /* Prevents image distortion */
+    height: 350px; /* Increased height for a larger image */
+}
+
+/* ✅ Makes sure text inside both cards aligns properly */
+.title-card h1, .card h2 {
+    margin-bottom: 15px; /* Ensures title text aligns */
+}
+
+.title-card p, .card p {
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .title-card, .card {
+        width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stacks elements on smaller screens */
+    }
+    .title-card, .card {
+        width: 90%;
+        max-width: 500px;
+        min-height: auto; /* Removes fixed height for better mobile experience */
+    }
+}
+
+@media (max-width: 480px) {
+    .title-card, .card {
+        padding: 20px;
+        min-height: auto;
+    }
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links li {
+        margin: 0 0.5rem;
+    }
+}
